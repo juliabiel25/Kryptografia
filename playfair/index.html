@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./main.css">
+    <link href='https://css.gg/swap.css' rel='stylesheet'>
+    <title>Playfair</title>
+    <!-- <script src="./main.js"></script> -->
+    <script src="./splitPairs.js"></script>
+</head>
+<body>
+    <dir id="warning" class="warning red on-top"></dir>
+    <div id="container">
+        <header>
+            <h1>Playfair</h1> 
+        </header>
+        <main>
+            <textarea id="inputText"></textarea>
+            <div id="middleSection">
+                <section class="optionGroup">
+                    <form id="optionForm">
+                        <input type="radio" id="fencode" name="direction" required>
+                        <label for="fencode">encode</label><br>
+                        <input type="radio" id="fdecode" name="direction">
+                        <label for="fdecode" >decode</label><br>
+                        <hr>
+                        <label for="fkeyword">Keyword</label><br>
+                        <input type="text" id="fkeyword" class="textInput" required><br>
+                        <label for="fseparator">Separator</label><br>
+                        <input type="text" id="fseparator" class="textInput" value="X" required><br>
+                    </form>
+                    <div class="row-stretch">
+                        <button onClick="onSubmit()" class="green">Submit</button>
+                        <button onClick="onSwap()" class="dark"><i class="gg-swap"></i></button>
+                    </div>  
+                </section>
+            </div>
+            <textarea id="resultText"></textarea>
+        </main>  
+    </div>  
+</body>
+</html>
