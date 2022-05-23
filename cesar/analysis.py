@@ -32,9 +32,9 @@ for i in range(len(alphabet)):
     trans[freqs[i][0]] = (en_freqs[i][0], round((freqs[i][1]/len(encoded)*100) - en_freqs[i][1], 2))
 
 # podstawienie
-cut = 100
+cut = 0.7
 for l in encoded:
-    if trans[l][1] >= cut:
+    if trans[l][1] >= cut or trans[l][1] <= -1*cut:
         decoded += '_'
     else:
         decoded += trans[l][0]

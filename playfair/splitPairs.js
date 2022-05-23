@@ -153,18 +153,18 @@ function findDistinct(text) {
     return distinct;
 }
 
-function splitReapeating(text, separator) {
-    let i = 1;
-    while (i < text.length) {
-        if (text[i - 1] == text[i]) {
-            text = text.substring(0, i) + separator + text.substring(i);
-            i += 2;
-        } else {
-            i++;
-        }
-    }
-    return text;
-}
+// function splitReapeating(text, separator) {
+//     let i = 1;
+//     while (i < text.length) {
+//         if (text[i - 1] == text[i]) {
+//             text = text.substring(0, i) + separator + text.substring(i);
+//             i += 2;
+//         } else {
+//             i++;
+//         }
+//     }
+//     return text;
+// }
 
 function adjustText(text) {
     return text.toUpperCase().replace(/[^a-zA-Z]/g, '');
@@ -213,6 +213,7 @@ function onSubmit() {
     let keyword =  adjustText(document.getElementById('fkeyword').value);
     let separator = document.getElementById('fseparator').value;
     
+    // sprawdz czy poprawne dane
     let warnings = Array();
     if (!decode && !encode) {
         warnings.push("Neither 'encode' nor 'decode' was chosen.");
@@ -231,8 +232,8 @@ function onSubmit() {
         let codingArray = fillCodingArray(keyword);
         showCodingArray(codingArray);
 
-        // pair up characters and insert X where necessary 
-        // (repetition within a pair / uneven length)
+        // łączenie liter w pary
+        // zwraca listę par albo index na którym należy wstawić separator
         let pairs = makePairs(text);
         let splits = 0;
         while (!isNaN(pairs)) {
@@ -254,6 +255,7 @@ function onSubmit() {
     }    
 }
 
+// przerzucenie tekstu z prawej na lewą
 function onSwap() {
     flushWarnings();
     flushCodingArray();
