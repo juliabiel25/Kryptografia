@@ -36,29 +36,23 @@ def pixel_black(px1, px2):
 
 random.seed()
 im = iio.imread('binary2.png')
-im = to_binary(im)
+im = to_binary(im)  # get rid of non-white and non-black pixels
 
+
+# copy and resize the origianl img array representation
 shape = im.shape
-print(shape)
 im_cp = im
-# part1 = clear(cv2.resize(im_cp, (shape[1], shape[0])))
 part1 = cv2.resize(im_cp, (shape[1]*2, shape[0]))
 
 im_cp = im
-# part2 = clear(cv2.resize(im_cp, (shape[0], shape[1])))
 part2 = cv2.resize(im_cp, (shape[1]*2, shape[0]))
 print(im.shape)
-
-# for i in range(len(part1)):
-#     for j in range(len(part1[i])):
-#         print(f'i = {i} j = {j}')
 
 for i in range(len(im)):
     for j in range(len(im[i])):
 
         j1 = j * 2
         j2 = j * 2 + 1
-        #print('j, j1, j2: ', j, j1, j2)
 
         # white pixel - generate 2 identical parts
         if im[i][j][0] == 255 and im[i][j][1] == 255 and im[i][j][2] == 255:
